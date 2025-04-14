@@ -1,5 +1,7 @@
 package com.sachin.quizapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -50,7 +52,18 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId()==R.id.share){
                     String shareBody = "Hye, I am Using best online quiz app"+"http://play.google.com/store/apps/details?id="+MainActivity.this.getPackageName();
-                }
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                    startActivity(intent);
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                }else if (item.getItemId()==R.id.rate){
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id="+MainActivity.this.getPackageName())));
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                }else if (item.getItemId()==R.id.privacy){
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("add privacy policy link")));
+                drawerLayout.closeDrawer(GravityCompat.START);
+            }
                 return false;
             }
         });

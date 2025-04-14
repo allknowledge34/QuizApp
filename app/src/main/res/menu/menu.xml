@@ -7,7 +7,7 @@
         android:icon="@drawable/baseline_share_24"/>
 
     <item
-        android:id="@+id/rete"
+        android:id="@+id/rate"
         android:title="Rate"
         android:icon="@drawable/baseline_star_outline_24"/>
 
